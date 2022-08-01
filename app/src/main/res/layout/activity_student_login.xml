@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <ImageButton
+                android:id="@+id/ib_return"
+                android:layout_width="14dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/transparent"
+                android:src="@drawable/return_back" />
+
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title"
+                style="@style/Title"
+                android:textColor="@color/black"
+                />
+
+
+        </LinearLayout>
+
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/student"
+            android:layout_marginTop="80dp"
+            android:layout_gravity="center"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:layout_marginHorizontal="50dp"
+            >
+
+            <TextView
+                android:text="@string/tv_stu_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                />
+
+            <EditText
+                android:id="@+id/input_stu_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_selector"
+                android:inputType="number"
+                android:maxLines="1"
+                android:maxLength="51"
+                android:layout_marginTop="5dp"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_marginHorizontal="50dp"
+            >
+
+            <TextView
+                android:text="@string/tv_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <EditText
+                    android:id="@+id/input_stu_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/input_selector"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:maxLength="51"
+                    android:layout_marginTop="5dp" />
+
+                <ImageView
+                    android:id="@+id/iv_pwd_stu_see"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@id/input_stu_pwd"
+                    android:layout_alignRight="@id/input_stu_pwd"
+                    android:src="@drawable/display_pwd"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginEnd="20dp" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_forget_stu_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgetPwd"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="end"
+            android:layout_marginRight="50dp"
+            android:layout_marginEnd="50dp" />
+
+
+        <Button
+            android:id="@+id/btn_stu_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="登录"
+            android:textColor="@color/right_bottom"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/button_login" />
+
+    </LinearLayout>
+</ScrollView>

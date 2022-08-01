@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LabourTimeSystem</string>
+    <string name="title">广外劳动实践学时</string>
+    <string name="tv_tch_id">输入工号</string>
+    <string name="tv_pwd">输入密码</string>
+    <string name="forgetPwd">忘记密码？</string>
+    <string name="tv_stu_id">输入学号</string>
+    <string name="bottom_bar_preview">实践预告</string>
+    <string name="bottom_bar_current">当前实践</string>
+    <string name="bottom_bar_my">我的</string>
+    <string name="dailyActivity">日常性劳动</string>
+    <string name="createActivity">创造性劳动</string>
+    <string name="serviceActivity">服务性劳动</string>
+    <string name="otherActivity">其他劳动</string>
+    <string name="not_join">未报名</string>
+    <string name="not_start">未开始</string>
+    <string name="example_detail"> </string>
+    <string name="setting_title">设置</string>
+    <string name="logout">退出登录</string>
+</resources>

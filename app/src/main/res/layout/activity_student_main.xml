@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    >
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_stu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/rg_stu"/>
+
+    <RadioGroup
+        android:id="@+id/rg_stu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingVertical="4dp"
+        android:background="@color/white">
+
+        <RadioButton
+            android:id="@+id/rb_preview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/bottom_bar_preview"
+            android:textColor="@drawable/selector_rg"
+            android:drawableTop="@drawable/selector_preview"
+            android:textSize="12sp"
+            />
+
+        <RadioButton
+            android:id="@+id/rb_current"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="@string/bottom_bar_current"
+            android:textColor="@drawable/selector_rg"
+            android:drawableTop="@drawable/selector_current"
+            android:textSize="12sp"
+            />
+
+        <RadioButton
+            android:id="@+id/rb_my"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/bottom_bar_my"
+            android:textColor="@drawable/selector_rg"
+            android:drawableTop="@drawable/selector_my"
+            android:textSize="12sp"
+            />
+
+
+
+
+
+    </RadioGroup>
+
+
+
+
+
+
+</RelativeLayout>
+

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tv_status" type="id"/>
+    <item name="tv_detail_name" type="id"/>
+    <item name="labour_title" type="id" />
+    <item name="labour_detail_img" type="id" />
+    <item name="ib_return" type="id"/>
+    <item name="ll_chang_pwd" type="id" />
+    <item name="ll_problem" type="id" />
+    <item name="ll_bind_email" type="id" />
+</resources>
