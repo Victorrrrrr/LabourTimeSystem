@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -15,6 +17,7 @@ import androidx.transition.TransitionInflater;
 
 import android.os.Handler;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -38,6 +41,7 @@ import com.example.labourtimesystem.bean.LabourItem;
 import com.example.labourtimesystem.decoration.SpaceItemDecoration;
 import com.example.labourtimesystem.util.DateUtils;
 import com.example.labourtimesystem.util.HttpUtils;
+import com.example.labourtimesystem.util.LogUtil;
 import com.example.labourtimesystem.util.SPUtils;
 
 import org.json.JSONArray;
@@ -96,9 +100,6 @@ public class StuCurrentFragment extends Fragment implements RadioGroup.OnChecked
         // 切换Fragment的过渡动画
         TransitionInflater inflater = TransitionInflater.from(requireContext());
         setExitTransition(inflater.inflateTransition(R.transition.fade));
-
-        // 设置Toolbar
-        setHasOptionsMenu(true);
     }
 
     @Override
@@ -106,7 +107,7 @@ public class StuCurrentFragment extends Fragment implements RadioGroup.OnChecked
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_stu_current, container, false);
-        mContext = getActivity();
+        mContext = getActivity().getApplicationContext();
         recyclerView = view.findViewById(R.id.current_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         recyclerView.addItemDecoration(new SpaceItemDecoration(getResources().getDimensionPixelOffset(R.dimen.item_space)));
@@ -147,7 +148,10 @@ public class StuCurrentFragment extends Fragment implements RadioGroup.OnChecked
         return view;
     }
 
-
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -426,10 +430,16 @@ public class StuCurrentFragment extends Fragment implements RadioGroup.OnChecked
         if (toolbar != null) {  //mActionBarToolbar就是android.support.v7.widget.Toolbar
             toolbar.setTitle("");  //设置为空，可以自己定义一个居中的控件，当做标题控件使用
         }
+        // 设置Toolbar菜单
+        setHasOptionsMenu(true);
+        AppCompatActivity appCompatActivity= (AppCompatActivity) getActivity();
+        appCompatActivity.setSupportActionBar(toolbar);
 
        //((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 
     }
+
+
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {

@@ -14,7 +14,13 @@
         <!-- Customize your theme here. -->
     </style>
 
-
+    <!--  Toolbar 的主题样式-->
+    <style name="ToolBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/right_bottom</item>
+        <item name="colorPrimaryDark">@color/right_bottom</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+    </style>
 
 
 </resources>

@@ -95,7 +95,7 @@ public class ItemLabourRecyclerViewAdapter extends RecyclerView.Adapter<ItemLabo
         @Override
         public void onClick(View v) {
             if(onItemClickListener != null){
-                onItemClickListener.onItemClick(v, getAdapterPosition(), labourList);
+                onItemClickListener.onItemClick(v, getLayoutPosition(), labourList);
             }
 
         }

@@ -10,8 +10,17 @@
         <item name="colorSecondaryVariant">@color/right_bottom</item>
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/transparent</item>
+        <item name="android:windowTranslucentStatus" tools:targetApi="l">true</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <!--  Toolbar 的主题样式-->
+    <style name="ToolBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/right_bottom</item>
+        <item name="colorPrimaryDark">@color/right_bottom</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
     </style>
 
 

@@ -13,9 +13,6 @@
     </style>
 
 
-    <style name="ToolbarIconColor" parent="@style/ThemeOverlay.AppCompat.Light">
-        <item name="colorControlNormal">@color/white</item>
-    </style>
 
     <!--activity 淡入淡出-->
     <style name="AnimActivity" parent="Theme.AppCompat.Light.NoActionBar">

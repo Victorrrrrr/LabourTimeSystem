@@ -1,256 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_container_current"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/gradient"
+    android:fitsSystemWindows="true"
     tools:context=".fragment.StuCurrentFragment">
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/swipe_current_stu">
+        android:background="@color/transparent"
+        android:fitsSystemWindows="true"
+        android:layout_height="250dp">
 
-        <ScrollView
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="none">
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <LinearLayout
+
+            <ImageView
+                android:id="@+id/deco_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginTop="?attr/actionBarSize"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/deco"
+                app:layout_collapseMode="parallax" />
 
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/current_toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    app:titleTextAppearance="@style/Title"
-                    android:background="@color/toolBar"
-                    android:theme="@style/ToolbarIconColor"
-                    >
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/current_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/toolBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_collapseMode="pin">
+
+                <TextView
+                    style="@style/Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bottom_bar_current" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_current_stu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="13dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <!--搜索图标-->
+                <ImageButton
+                    android:id="@+id/ib_reset_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@color/transparent"
+                    android:src="@drawable/return_back" />
+
+                <!--学期选择-->
+                <RelativeLayout
+                    android:id="@+id/rl_term_choose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_toStartOf="@id/rl_status_choose"
+                    android:layout_toLeftOf="@id/rl_status_choose"
+                    android:background="@drawable/shape_drop_parent"
+                    android:clickable="true"
+                    android:onClick="onClick"
+                    tools:ignore="OnClick">
 
                     <TextView
+                        android:id="@+id/tv_term_show"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:gravity="center_vertical"
+                        android:text="2000-2000-0" />
+
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/bottom_bar_current"
-                        style="@style/Title"
-                        android:layout_gravity="center"/>
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_toEndOf="@id/tv_term_show"
+                        android:layout_toRightOf="@id/tv_term_show"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/drop_list" />
+                </RelativeLayout>
 
-                </androidx.appcompat.widget.Toolbar>
-
-
-
-                <ImageView
-                    android:id="@+id/deco_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/deco" />
-
+                <!--活动状态选择-->
                 <RelativeLayout
-                    android:layout_width="match_parent"
+                    android:id="@+id/rl_status_choose"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="13dp"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal">
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/shape_drop_parent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onClick"
+                    tools:ignore="OnClick">
 
-                    <!--搜索图标-->
-                    <ImageButton
-                        android:id="@+id/ib_reset_list"
+                    <TextView
+                        android:id="@+id/tv_status_show"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@color/transparent"
-                        android:src="@drawable/return_back"
-                        android:layout_centerVertical="true"/>
+                        android:layout_height="25dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:gravity="center_vertical" />
 
-                    <!--学期选择-->
-                    <RelativeLayout
-                        android:id="@+id/rl_term_choose"
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toStartOf="@id/rl_status_choose"
-                        android:layout_toLeftOf="@id/rl_status_choose"
-                        android:background="@drawable/shape_drop_parent"
-                        android:clickable="true"
-                        android:onClick="onClick"
-                        tools:ignore="OnClick">
-
-                        <TextView
-                            android:id="@+id/tv_term_show"
-                            android:layout_width="wrap_content"
-                            android:layout_height="25dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:gravity="center_vertical"
-                            android:text="2000-2000-0" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginEnd="5dp"
-                            android:layout_marginRight="5dp"
-                            android:layout_toEndOf="@id/tv_term_show"
-                            android:layout_toRightOf="@id/tv_term_show"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/drop_list" />
-                    </RelativeLayout>
-
-                    <!--活动状态选择-->
-                    <RelativeLayout
-                        android:id="@+id/rl_status_choose"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:background="@drawable/shape_drop_parent"
-                        android:clickable="true"
-                        android:onClick="onClick"
-                        tools:ignore="OnClick"
-                        android:focusable="true">
-
-                        <TextView
-                            android:id="@+id/tv_status_show"
-                            android:layout_width="wrap_content"
-                            android:layout_height="25dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:gravity="center_vertical"
-                             />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginEnd="5dp"
-                            android:layout_marginRight="5dp"
-                            android:layout_toEndOf="@id/tv_status_show"
-                            android:layout_toRightOf="@id/tv_status_show"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/drop_list" />
-
-                    </RelativeLayout>
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_toEndOf="@id/tv_status_show"
+                        android:layout_toRightOf="@id/tv_status_show"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/drop_list" />
 
                 </RelativeLayout>
 
+            </RelativeLayout>
 
-                <!--劳动选项栏-->
-                <RadioGroup
-                    android:id="@+id/rg_type_select"
+            <!--劳动选项栏-->
+            <RadioGroup
+                android:id="@+id/rg_type_select"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="10dp"
+                android:weightSum="4">
+
+                <RadioButton
+                    android:id="@+id/rb_daily_labour"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_daily"
+                    android:button="@null"
+                    android:drawableTop="@drawable/daily"
+                    android:drawablePadding="2dp"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:orientation="vertical"
+                    android:text="@string/dailyActivity"
+                    android:textColor="#F3AB5C"
+                    android:textSize="12sp" />
+
+
+                <RadioButton
+                    android:id="@+id/rb_create_labour"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_create"
+                    android:button="@null"
+                    android:drawableTop="@drawable/create"
+                    android:drawablePadding="2dp"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:orientation="vertical"
+                    android:text="@string/createActivity"
+                    android:textColor="#AE9FE4"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_service_labour"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_service"
+                    android:button="@null"
+                    android:drawableTop="@drawable/service"
+                    android:drawablePadding="2dp"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:orientation="vertical"
+                    android:text="@string/serviceActivity"
+                    android:textColor="#F38D92"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_other_labour"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_other"
+                    android:button="@null"
+                    android:drawableTop="@drawable/other"
+                    android:drawablePadding="2dp"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:orientation="vertical"
+                    android:text="@string/otherActivity"
+                    android:textColor="#A3B4F1"
+                    android:textSize="12sp" />
+
+            </RadioGroup>
+
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="8dp"
-                    android:weightSum="4">
+                    android:orientation="vertical">
 
-                    <RadioButton
-                        android:id="@+id/rb_daily_labour"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="3dp"
-                        android:layout_weight="1"
-                        android:drawableTop="@drawable/daily"
-                        android:drawablePadding="2dp"
-                        android:text="@string/dailyActivity"
-                        android:textSize="12sp"
-                        android:maxLines="1"
-                        android:ellipsize="end"
-                        android:gravity="center"
-                        android:textColor="#F3AB5C"
-                        android:background="@drawable/selector_daily"
-                        android:button="@null"
-                        android:orientation="vertical"
-                        />
-
-
-                    <RadioButton
-                        android:id="@+id/rb_create_labour"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="3dp"
-                        android:layout_weight="1"
-                        android:drawablePadding="2dp"
-                        android:drawableTop="@drawable/create"
-                        android:text="@string/createActivity"
-                        android:textSize="12sp"
-                        android:maxLines="1"
-                        android:ellipsize="end"
-                        android:gravity="center"
-                        android:textColor="#AE9FE4"
-                        android:background="@drawable/selector_create"
-                        android:button="@null"
-                        android:orientation="vertical" />
-
-                    <RadioButton
-                        android:id="@+id/rb_service_labour"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="3dp"
-                        android:layout_weight="1"
-                        android:drawablePadding="2dp"
-                        android:drawableTop="@drawable/service"
-                        android:text="@string/serviceActivity"
-                        android:textSize="12sp"
-                        android:maxLines="1"
-                        android:ellipsize="end"
-                        android:gravity="center"
-                        android:textColor="#F38D92"
-                        android:background="@drawable/selector_service"
-                        android:button="@null"
-                        android:orientation="vertical" />
-
-                    <RadioButton
-                        android:id="@+id/rb_other_labour"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="3dp"
-                        android:layout_weight="1"
-                        android:drawablePadding="2dp"
-                        android:drawableTop="@drawable/other"
-                        android:text="@string/otherActivity"
-                        android:textSize="12sp"
-                        android:maxLines="1"
-                        android:ellipsize="end"
-                        android:gravity="center"
-                        android:textColor="#A3B4F1"
-                        android:background="@drawable/selector_other"
-                        android:button="@null"
-                        android:orientation="vertical" />
-
-                </RadioGroup>
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:descendantFocusability="blocksDescendants"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="20dp">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/current_list"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         app:layoutManager="LinearLayoutManager"
-                        tools:listitem="@layout/item_labour_activity"
-                        />
-                </RelativeLayout>
+                        tools:listitem="@layout/item_labour_activity" />
 
 
-            </LinearLayout>
+                </LinearLayout>
 
-        </ScrollView>
+
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

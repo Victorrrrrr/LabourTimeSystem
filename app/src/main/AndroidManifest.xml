@@ -26,7 +26,7 @@
         <activity android:name=".TeacherLvThreeMainActivity" />
         <activity android:name=".TeacherLvTwoMainActivity" />
         <activity android:name=".TeacherLvOneMainActivity" />
-        <activity android:name=".StudentMainActivity" />
+        <activity android:name=".StudentMainActivity" android:theme="@style/ToolBarTheme"/>
         <activity android:name=".ForgetPwdActivity" />
         <activity android:name=".TeacherLoginActivity" />
         <activity android:name=".StudentLoginActivity" />

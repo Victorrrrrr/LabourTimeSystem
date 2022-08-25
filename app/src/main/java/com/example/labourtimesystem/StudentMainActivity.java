@@ -44,7 +44,6 @@ public class StudentMainActivity extends BaseActivity implements RadioGroup.OnCh
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_main);
-        getSupportActionBar().hide();
         StudentRgAdapter adapter = new StudentRgAdapter(this);
 
         RadioGroup rg = findViewById(R.id.rg_stu);
