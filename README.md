@@ -3,6 +3,10 @@
 
 
 
+https://user-images.githubusercontent.com/36063894/199641591-a4faf96f-6206-43bd-81e8-a44811cd37e3.mp4
+
+
+
 优点：
 1.使用Retrofit+Okhttp组合完成网络请求
 
